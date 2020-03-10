@@ -13,7 +13,7 @@ Making a bot that post music on soundcloud. The music is madey a bot
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="img/music_notes_PNG64.png" alt="logo" width="80" height="200">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
