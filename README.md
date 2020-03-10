@@ -17,7 +17,7 @@
   <h3 align="center">Project_Edward</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Ett program som genererar music!
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
