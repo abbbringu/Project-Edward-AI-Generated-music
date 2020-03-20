@@ -52,9 +52,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
+Projektet handlar om att skapa music utav ett dataset i form av midi. Filen ska helst vara ett instrument. Jag har gått igenom andra metoder som Lstm och Stylegan för att generera musik. Jag blev missnöjd med resultaten och bestämde att arbeta vidare. Lstm tog in massor med data och kan bestämma vilken not som ska spelas efter på varandra. Konsekvensen blev att det inte gick att implemeterar durationer och pauser. Stylegan användes tekniskt sätt för att generera bilder. Midifiler kan konverteras till bilder och skapar en 2d yta. y axeln är notens ton och x axeln är tiden. Resultaten från det var helt okej men det saknades struktur i låten. Eftersom stylegan tar alla delar i musiken och gör sin egen version finns det inget slut eller början.
 
 Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
