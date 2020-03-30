@@ -52,12 +52,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Projektet handlar om att skapa music utav ett dataset i form av midi. Filen ska helst vara ett instrument. Jag har gått igenom andra metoder som Lstm och Stylegan för att generera musik. Jag blev missnöjd med resultaten och bestämde att arbeta vidare. Lstm tog in massor med data och kan bestämma vilken not som ska spelas efter på varandra. Konsekvensen blev att det inte gick att implemeterar durationer och pauser. Stylegan användes tekniskt sätt för att generera bilder. Midifiler kan konverteras till bilder och skapar en 2d yta. y axeln är notens ton och x axeln är tiden. Resultaten från det var helt okej men det saknades struktur i låten. Eftersom stylegan tar alla delar i musiken och gör sin egen version finns det inget slut eller början.
+Projektet handlar om att skapa music utav ett dataset i form av midi. Filen ska helst vara ett instrument. Jag har gått igenom andra metoder som Lstm för att generera musik. Jag blev missnöjd med resultaten och bestämde att arbeta vidare. Lstm tog in massor med data och kan bestämma vilka noter som ska spelas efter på varandra. Konsekvensen blev att det inte gick att implemeterar durationer och pauser. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+För projektet har jag tänkt använda stylegan för att göra musik. Stylegan är teknisk sätt för bilder. Vilket vi kan använda. Därför använder vi midifiler. Man kan konvertera midifiler till ett kordinat system. X-axeln blir tid och Y axen blir noten. Vi kan spara koriatsystement som en png bild. Varje låt blir ungefär 5-50 bilder långa. Förhoppnings vis får vi ett bra resultat. En risk är att stylegan tar bilder oavsett vart i sången den är. Det vill säga att stylegan kommer inte uppfatta om en början och slut, allt är detsamma. 
+
+Överblick av projektet:
+* Samla in midi filer i formen (.mid) 
+* Konverterar mid filerna till .png
+* Gör om bilderna till ett data set (tfrecord) 
+* Använd datasetet och börja träna
+* 
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
 
