@@ -26,7 +26,7 @@
 ## Innehållsförteckning
 
 * [Om Projektet](#om-projektet)
-  * [Built With](#built-with)
+  * [Byggd Med](#byggd-med)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -56,17 +56,14 @@ För projektet har jag tänkt använda stylegan för att göra musik. Stylegan �
 * Konverterar mid filerna till .png
 * Gör om bilderna till ett data set (tfrecord) 
 * Använd datasetet och börja träna
-* 
+* Använd bilderna och minimera den till 100*106 res för att senare konvertera den till mid fil igen
+Spela midifilerna
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
-
-### Built With
+### Byggd Med
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+* [Stylegan](https://github.com/t04glovern/stylegan-pokemon)
+* [Midi2img and Img2midi](https://github.com/mathigatti/midi2img)
+* [Resizing images](https://auth0.com/blog/image-processing-in-python-with-pillow/)
 
 
 
