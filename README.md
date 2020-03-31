@@ -31,7 +31,8 @@
   * [Förarbete](#förarbete)
   * [Drive](#drive)
   * [Träning](#träning)
-    * [Träning från början](#träning-från.början)
+  * [Träning från början](#träning-från.början)
+  * [Träning från påbörjad träning](#träning-från-påbörjad-träning)
 * [Användning](#användning)
 
 
