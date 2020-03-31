@@ -1,7 +1,7 @@
 
 <!-- PROJECT SHIELDS -->
 <!--
-*** I'm using markdown "reference style" links for readability.
+** I'm using markdown "reference style" links for readability.
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
 *** See the bottom of this document for the declaration of the reference variables
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
@@ -52,7 +52,7 @@ För projektet har jag tänkt använda stylegan för att göra musik. Stylegan �
 * Konverterar mid filerna till .png
 * Gör om bilderna till ett data set (tfrecord) 
 * Använd datasetet och börja träna
-* Använd bilderna och minimera den till 100*106 res för att senare konvertera den till mid fil igen
+* Använd bilderna och minimera den till 100x106 res för att senare konvertera den till mid fil igen
 Spela midifilerna
 
 ### Byggd Med
@@ -103,7 +103,7 @@ Samtidigt skapar vi en mapp "STYLE-GAN" och gör en förkorning från /content/d
 
 ### Eget Dataset
 
-För att göra vårt eget dataset måste vi först ha bilder. Gör en mapp i STYLE-GAN som heter "Music" i google drive. Ta bort filer som slutar på ".MID" eller (".MIDI"). Koden kan endast ta in ".mid" filer. Sedan kör vi koden midi2img-py. Alla bilder borde ligga i /content/Raw. Bilderna i /Raw kommer ut i storlek 100*106 och därför behöver vi resize_img.py vilket gör om de till 256*256. Bilderna hamnar då i Images. 
+För att göra vårt eget dataset måste vi först ha bilder. Gör en mapp i STYLE-GAN som heter "Music" i google drive. Ta bort filer som slutar på ".MID" eller (".MIDI"). Koden kan endast ta in ".mid" filer. Sedan kör vi koden midi2img-py. Alla bilder borde ligga i /content/Raw. Bilderna i /Raw kommer ut i storlek 100x106 och därför behöver vi resize_img.py vilket gör om de till 256x256. Bilderna hamnar då i Images. 
 
 När vi har bilderna använder vi:
 ```sh
@@ -114,7 +114,13 @@ Eftersom stylegan använder sig utav tfrecord måste vi konvertera bilderna. (St
 
 ### Träning
 
-Träningen är från början inställd på att träna en ny model i res 256*256. 
+Träningen är från början inställd på att träna en ny model i res 256x256. Den är även inställd på att ta ocn spara datan på driven. Det kan anändras beroende på vart du vill ta och spara filerna. Allt finns i /content/Stlye-Gan/config.py
+```sh
+result_dir = '/STYLE-GAN/results' #Där resultaten sparas
+data_dir = '/STYLE-GAN' #Där mappen med tfrecord filerna finns
+```
+
+
 
 <!-- USAGE EXAMPLES -->
 ## Användning
