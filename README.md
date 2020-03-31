@@ -119,7 +119,18 @@ Träningen är från början inställd på att träna en ny model i res 256x256.
 result_dir = '/STYLE-GAN/results' #Där resultaten sparas
 data_dir = '/STYLE-GAN' #Där mappen med tfrecord filerna finns
 ```
+I /content/Stlye-Gan/Train.py Måste det om du inte har en map i drive/STYLE-GAN som heter "data", inte har bilder i 256x256, vill träna med mirror eller vill använda mer än 1 gpu. Om inte kan du ignorera det här stycket.
+Du kan hita koden under vid rad 35-36
+```sh
+35  # Dataset.
+36  desc += '-custom';     dataset = EasyDict(tfrecord_dir='data', resolution=256);              train.mirror_augment = False
+```
+#### Träning från början
 
+
+
+
+#### Träning fårn påbörjad träning
 
 
 <!-- USAGE EXAMPLES -->
