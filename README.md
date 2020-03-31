@@ -71,6 +71,7 @@ Här hittar du orginal koder som hjälpte med projektet.
 ## Getting Started
 
 Det här projektet använder [datasetet](https://www.kaggle.com/soumikrakshit/classical-music-midi). Det här datasetet är klassisk musik som bara spelas av ett instrument. 
+Här är även min [google-colab](https://colab.research.google.com/drive/1HbpWlQ8gaTG6c4ps7POXD-sSs-6mbWLg#scrollTo=JF1mwki7pjZc) fil som du kan följa.
 
 ### Prerequisites
 
