@@ -31,7 +31,7 @@
   * [Förarbete](#förarbete)
   * [Drive](#drive)
   * [Träning](#träning)
-* [Usage](#usage)
+* [Användning](#användning)
 
 
 
@@ -60,6 +60,7 @@ Här hittar du orginal koder som hjälpte med projektet.
 * [Stylegan](https://github.com/t04glovern/stylegan-pokemon)
 * [Midi2img and Img2midi](https://github.com/mathigatti/midi2img)
 * [Resizing images](https://auth0.com/blog/image-processing-in-python-with-pillow/)
+* [Orginala Google Colab](https://colab.research.google.com/drive/1zPmnBwNix4wSARUZ9izE92t6TjzVqN2P#scrollTo=zh3adHVfo7yj)
 
 
 
@@ -109,13 +110,14 @@ När vi har bilderna använder vi:
 %cd /content/stylegan-pokemon/stylegan
 !python dataset_tool.py create_from_images (Path till vart datan ska sparas) (/content/Images/)
 ```
-Eftersom stylegan använder sig utav tfrecord måste vi konvertera bilderna. (Startkt rekomenerat att bilderna sparas i driven)
+Eftersom stylegan använder sig utav tfrecord måste vi konvertera bilderna. (Startkt rekomenerat att bilderna sparas i driven i en mapp som heter data)
 
 ### Träning
 
+Träningen är från början inställd på att träna en ny model i res 256*256. 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Användning
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
