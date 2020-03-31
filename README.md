@@ -18,25 +18,15 @@
 
   <p align="center">
     Ett program som genererar music!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</p>
+
 
 
 
 <!-- TABLE OF CONTENTS -->
-## Table of Contents
+## Innehållsförteckning
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
+* [Om Projektet](#om-projektet)
+  * [Byggd Med](#byggd-med)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -50,36 +40,37 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Om Projektet
 
 Projektet handlar om att skapa music utav ett dataset i form av midi. Filen ska helst vara ett instrument. Jag har gått igenom andra metoder som Lstm för att generera musik. Jag blev missnöjd med resultaten och bestämde att arbeta vidare. Lstm tog in massor med data och kan bestämma vilka noter som ska spelas efter på varandra. Konsekvensen blev att det inte gick att implemeterar durationer och pauser. 
 
 För projektet har jag tänkt använda stylegan för att göra musik. Stylegan är teknisk sätt för bilder. Vilket vi kan använda. Därför använder vi midifiler. Man kan konvertera midifiler till ett kordinat system. X-axeln blir tid och Y axen blir noten. Vi kan spara koriatsystement som en png bild. Varje låt blir ungefär 5-50 bilder långa. Förhoppnings vis får vi ett bra resultat. En risk är att stylegan tar bilder oavsett vart i sången den är. Det vill säga att stylegan kommer inte uppfatta om en början och slut, allt är detsamma. 
+
+<p align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="img/210appass_1_Piano_6.png" alt="logo" width="256" height="256">
+</a>
 
 Överblick av projektet:
 * Samla in midi filer i formen (.mid) 
 * Konverterar mid filerna till .png
 * Gör om bilderna till ett data set (tfrecord) 
 * Använd datasetet och börja träna
-* 
+* Använd bilderna och minimera den till 100*106 res för att senare konvertera den till mid fil igen
+Spela midifilerna
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
-
-### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+### Byggd Med
+Här hittar du orginal koder som hjälpte med projektet.
+* [Stylegan](https://github.com/t04glovern/stylegan-pokemon)
+* [Midi2img and Img2midi](https://github.com/mathigatti/midi2img)
+* [Resizing images](https://auth0.com/blog/image-processing-in-python-with-pillow/)
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Det här projektet använder [datasetet](https://www.kaggle.com/soumikrakshit/classical-music-midi). Det här datasetet är klassisk musik som bara spelas av ett instrument. 
 
 ### Prerequisites
 
