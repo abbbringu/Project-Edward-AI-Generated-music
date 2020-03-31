@@ -128,14 +128,14 @@ Du kan hita koden under vid rad 35-36
 36  desc += '-custom';     dataset = EasyDict(tfrecord_dir='data', resolution=256);              train.mirror_augment = False
 ```
 #### Träning från början
-Om du vill träna från början kan du lämna content/Style-Gan/training/training_loop.py i fred. Men en sak som man kan ändra är totala träningar. Du hittar det vid rad 129:
+Om du vill träna från början kan du lämna content/Style-Gan/training/training_loop.py för det mesta i fred. Men en sak kan som kan ändras är totala träningar. Du hittar det vid rad 129:
 ```sh
    129    total_kimg = 15000,    # Total length of the training, measured in thousands of real images.
 ```
 Det finns även andra inställningar som kan vara bra att ha på eller av beroende på anvädningen.
 
 #### Träning från påbörjad träning
-För att starta en träning från en påbörjad träning behöver du ändra 2 saker i content/Style-Gan/training/training_loop.py Du måste först ange vart din senaste pkl fil är. De lär vara någon stans i något liknande som STYLE-GAN/results/00009-sgan-custom-1gpu/network-snapshot-003765.pkl
+För att starta en träning från en påbörjad träning behöver du ändra 2 saker i content/Style-Gan/training/training_loop.py Du måste först ange vart din senaste pkl fil är. De lär vara någon stans (driven) STYLE-GAN/results/00009-sgan-custom-1gpu/network-snapshot-003765.pkl
 Du lägger pathen i:
 ```sh
    136    resume_run_id = STYLE-GAN/results/00009-sgan-custom-1gpu/network-snapshot-003765.pkl
