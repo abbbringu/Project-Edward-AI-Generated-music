@@ -1,7 +1,7 @@
 
 <!-- PROJECT SHIELDS -->
 <!--
-*** I'm using markdown "reference style" links for readability.
+** I'm using markdown "reference style" links for readability.
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
 *** See the bottom of this document for the declaration of the reference variables
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
@@ -27,15 +27,13 @@
 
 * [Om Projektet](#om-projektet)
   * [Byggd Med](#byggd-med)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
+* [Börja](#börja)
+  * [Förarbete](#förarbete)
+  * [Drive](#drive)
+  * [Träning](#träning)
+  * [Träning från början](#träning-från-början)
+  * [Träning från påbörjad träning](#träning-från-påbörjad-träning)
+* [Användning](#användning)
 
 
 
@@ -56,7 +54,7 @@ För projektet har jag tänkt använda stylegan för att göra musik. Stylegan �
 * Konverterar mid filerna till .png
 * Gör om bilderna till ett data set (tfrecord) 
 * Använd datasetet och börja träna
-* Använd bilderna och minimera den till 100*106 res för att senare konvertera den till mid fil igen
+* Använd bilderna och minimera den till 100x106 res för att senare konvertera den till mid fil igen
 Spela midifilerna
 
 ### Byggd Med
@@ -64,115 +62,94 @@ Här hittar du orginal koder som hjälpte med projektet.
 * [Stylegan](https://github.com/t04glovern/stylegan-pokemon)
 * [Midi2img and Img2midi](https://github.com/mathigatti/midi2img)
 * [Resizing images](https://auth0.com/blog/image-processing-in-python-with-pillow/)
+* [Orginala Google Colab](https://colab.research.google.com/drive/1zPmnBwNix4wSARUZ9izE92t6TjzVqN2P#scrollTo=zh3adHVfo7yj)
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Börja
 
 Det här projektet använder [datasetet](https://www.kaggle.com/soumikrakshit/classical-music-midi). Det här datasetet är klassisk musik som bara spelas av ett instrument. 
+Här är även min [google-colab](https://colab.research.google.com/drive/1HbpWlQ8gaTG6c4ps7POXD-sSs-6mbWLg#scrollTo=JF1mwki7pjZc) fil som du kan följa.
 
-### Prerequisites
+### Förarbete
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Vi börjar med att clona det vi behöver för det här projektet. Vi gör även mappar för vart bilderna kommer hamna. 
+Sist använder vi tensorflow 1.
 ```sh
-npm install npm@latest -g
+%cd /content/
+!git clone https://github.com/abbbringu/Project_Edward
+!mkdir Music
+!mkdir Raw
+!mkdir Images
+%tensorflow_version 1.x
 ```
 
-### Installation
+### Drive
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+För att koppla colab med drive använder vi:
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+from google.colab import drive
+drive.mount('/content/drive')
+# drive.mount("/content/drive", force_remount=True)
+%cd /content/drive/My Drive/
+!mkdir STYLE-GAN
+%ls
+%cd /content
+
+!ln -s "/content/drive/My Drive/STYLE-GAN" /STYLE-GAN
+%cd /STYLE-GAN
+%ls
 ```
-3. Install NPM packages
+Samtidigt skapar vi en mapp "STYLE-GAN" och gör en förkorning från /content/drive/My Drive/STYLE-GAN till /STYLE-GAN
+
+### Eget Dataset
+
+För att göra vårt eget dataset måste vi först ha bilder. Gör en mapp i STYLE-GAN som heter "Music" i google drive. Ta bort filer som slutar på ".MID" eller (".MIDI"). Koden kan endast ta in ".mid" filer. Sedan kör vi koden midi2img-py. Alla bilder borde ligga i /content/Raw. Bilderna i /Raw kommer ut i storlek 100x106 och därför behöver vi resize_img.py vilket gör om de till 256x256. Bilderna hamnar då i Images. 
+
+När vi har bilderna använder vi:
 ```sh
-npm install
+%cd /content/stylegan-pokemon/stylegan
+!python dataset_tool.py create_from_images (Path till vart datan ska sparas) (/content/Images/)
 ```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
+Eftersom stylegan använder sig utav tfrecord måste vi konvertera bilderna. (Startkt rekomenerat att bilderna sparas i driven i en mapp som heter data)
+
+### Träning
+
+Träningen är från början inställd på att träna en ny model i res 256x256. Den är även inställd på att ta ocn spara datan på driven. Det kan anändras beroende på vart du vill ta och spara filerna. Allt finns i /content/Stlye-Gan/config.py
+```sh
+result_dir = '/STYLE-GAN/results' #Där resultaten sparas
+data_dir = '/STYLE-GAN' #Där mappen med tfrecord filerna finns
+```
+I /content/Stlye-Gan/Train.py Måste det om du inte har en map i drive/STYLE-GAN som heter "data", inte har bilder i 256x256, vill träna med mirror eller vill använda mer än 1 gpu. Om inte kan du ignorera det här stycket.
+Du kan hita koden under vid rad 35-36
+```sh
+35  # Dataset.
+36  desc += '-custom';     dataset = EasyDict(tfrecord_dir='data', resolution=256);              train.mirror_augment = False
+```
+#### Träning från början
+Om du vill träna från början kan du lämna content/Style-Gan/training/training_loop.py för det mesta i fred. Men en sak kan som kan ändras är totala träningar. Du hittar det vid rad 129:
+```sh
+   129    total_kimg = 15000,    # Total length of the training, measured in thousands of real images.
+```
+Det finns även andra inställningar som kan vara bra att ha på eller av beroende på anvädningen.
+
+#### Träning från påbörjad träning
+För att starta en träning från en påbörjad träning behöver du ändra 2 saker i content/Style-Gan/training/training_loop.py Du måste först ange vart din senaste pkl fil är. De lär vara någon stans (driven) STYLE-GAN/results/00009-sgan-custom-1gpu/network-snapshot-003765.pkl
+Du lägger pathen i:
+```sh
+   136    resume_run_id = STYLE-GAN/results/00009-sgan-custom-1gpu/network-snapshot-003765.pkl
+```
+Och sedan måste du även ändra hur långt den kom (I det här fallet 3765):
+```sh
+   138    resume_kimg = 3765,      # Assumed training progress at the beginning. Affects reporting and training schedule.
 ```
 
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Användning
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
