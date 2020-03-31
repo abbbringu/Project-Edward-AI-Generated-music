@@ -60,7 +60,7 @@ För projektet har jag tänkt använda stylegan för att göra musik. Stylegan �
 Spela midifilerna
 
 ### Byggd Med
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Här hittar du orginal koder som hjälpte med projektet.
 * [Stylegan](https://github.com/t04glovern/stylegan-pokemon)
 * [Midi2img and Img2midi](https://github.com/mathigatti/midi2img)
 * [Resizing images](https://auth0.com/blog/image-processing-in-python-with-pillow/)
@@ -70,7 +70,7 @@ This section should list any major frameworks that you built your project using.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Det här projektet använder [datasetet](https://www.kaggle.com/soumikrakshit/classical-music-midi)
+Det här projektet använder [datasetet](https://www.kaggle.com/soumikrakshit/classical-music-midi). Det här datasetet är klassisk musik som bara spelas av ett instrument. 
 
 ### Prerequisites
 
