@@ -29,6 +29,7 @@
   * [Byggd Med](#byggd-med)
 * [Getting Started](#getting-started)
   * [Förarbete](#förarbete)
+  * [Drive](#drive)
   * [Installation](#installation)
 * [Usage](#usage)
 
@@ -99,23 +100,16 @@ drive.mount('/content/drive')
 ```
 Samtidigt skapar vi en mapp "STYLE-GAN" och gör en förkorning från /content/drive/My Drive/STYLE-GAN till /STYLE-GAN
 
-### Installation
+### Eget Dataset
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+För att göra vårt eget dataset måste vi först ha bilder. Gör en mapp i STYLE-GAN som heter "Music" i google drive. Ta bort filer som slutar på ".MID" eller (".MIDI"). Koden kan endast ta in ".mid" filer. Sedan kör vi koden midi2img-py. Alla bilder borde ligga i /content/Raw. Bilderna i /Raw kommer ut i storlek 100*106 och därför behöver vi resize_img.py vilket gör om de till 256*256. Bilderna hamnar då i Images. 
+
+När vi har bilderna använder vi:
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+%cd /content/stylegan-pokemon/stylegan
+!python dataset_tool.py create_from_images (Path till vart datan ska sparas) (/content/Images/)
 ```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
-
-
+Eftersom stylegan använder sig utav tfrecord måste vi konvertera bilderna. (Startkt rekomenerat att bilderna sparas i driven)
 
 <!-- USAGE EXAMPLES -->
 ## Usage
