@@ -28,7 +28,7 @@
 * [Om Projektet](#om-projektet)
   * [Byggd Med](#byggd-med)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
+  * [Förarbete](#förarbete)
   * [Installation](#installation)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
@@ -73,12 +73,17 @@ Här hittar du orginal koder som hjälpte med projektet.
 Det här projektet använder [datasetet](https://www.kaggle.com/soumikrakshit/classical-music-midi). Det här datasetet är klassisk musik som bara spelas av ett instrument. 
 Här är även min [google-colab](https://colab.research.google.com/drive/1HbpWlQ8gaTG6c4ps7POXD-sSs-6mbWLg#scrollTo=JF1mwki7pjZc) fil som du kan följa.
 
-### Prerequisites
+### Förarbete
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Vi börjar med att clona det vi behöver för det här projektet. Vi gör även mappar för vart bilderna kommer hamna. 
+Sist använder vi tensorflow 1.
 ```sh
-npm install npm@latest -g
+%cd /content/
+!git clone https://github.com/abbbringu/Project_Edward
+!mkdir Music
+!mkdir Raw
+!mkdir Images
+%tensorflow_version 1.x
 ```
 
 ### Installation
