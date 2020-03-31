@@ -27,10 +27,10 @@
 
 * [Om Projektet](#om-projektet)
   * [Byggd Med](#byggd-med)
-* [Getting Started](#getting-started)
+* [Börja](#börja)
   * [Förarbete](#förarbete)
   * [Drive](#drive)
-  * [Installation](#installation)
+  * [Träning](#träning)
 * [Usage](#usage)
 
 
@@ -64,7 +64,7 @@ Här hittar du orginal koder som hjälpte med projektet.
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Börja
 
 Det här projektet använder [datasetet](https://www.kaggle.com/soumikrakshit/classical-music-midi). Det här datasetet är klassisk musik som bara spelas av ett instrument. 
 Här är även min [google-colab](https://colab.research.google.com/drive/1HbpWlQ8gaTG6c4ps7POXD-sSs-6mbWLg#scrollTo=JF1mwki7pjZc) fil som du kan följa.
@@ -110,6 +110,9 @@ När vi har bilderna använder vi:
 !python dataset_tool.py create_from_images (Path till vart datan ska sparas) (/content/Images/)
 ```
 Eftersom stylegan använder sig utav tfrecord måste vi konvertera bilderna. (Startkt rekomenerat att bilderna sparas i driven)
+
+### Träning
+
 
 <!-- USAGE EXAMPLES -->
 ## Usage
