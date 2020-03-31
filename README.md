@@ -81,6 +81,24 @@ Sist använder vi tensorflow 1.
 %tensorflow_version 1.x
 ```
 
+### Drive
+
+För att koppla colab med drive använder vi:
+```sh
+from google.colab import drive
+drive.mount('/content/drive')
+# drive.mount("/content/drive", force_remount=True)
+%cd /content/drive/My Drive/
+!mkdir STYLE-GAN
+%ls
+%cd /content
+
+!ln -s "/content/drive/My Drive/STYLE-GAN" /STYLE-GAN
+%cd /STYLE-GAN
+%ls
+```
+Samtidigt skapar vi en mapp "STYLE-GAN" och gör en förkorning från /content/drive/My Drive/STYLE-GAN till /STYLE-GAN
+
 ### Installation
 
 1. Get a free API Key at [https://example.com](https://example.com)
