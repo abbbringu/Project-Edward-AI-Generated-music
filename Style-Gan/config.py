@@ -10,8 +10,8 @@
 #----------------------------------------------------------------------------
 # Paths.
 
-result_dir = 'results'
-data_dir = 'datasets'
+result_dir = '/STYLE-GAN/results'
+data_dir = '/STYLE-GAN'
 cache_dir = 'cache'
 run_dir_ignore = ['results', 'datasets', 'cache']
 
