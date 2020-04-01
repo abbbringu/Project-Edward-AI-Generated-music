@@ -150,7 +150,7 @@ Och sedan måste du även ändra hur långt den kom (I det här fallet 3765):
 <!-- USAGE EXAMPLES -->
 ## Användning
 
-För att använda ai och för att producera en genererad bild använder vi invoke scriptet från stylegan
+För att använda ai och för att producera en genererad bild använder vi invoke scriptet från stylegan. Det som behövs är pathen till apk filen.
 
 
 ```sh
