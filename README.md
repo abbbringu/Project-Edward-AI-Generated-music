@@ -158,3 +158,12 @@ För att använda ai och för att producera en genererad bild använder vi invok
 !python invoke.py \
     --model_file '/content/stylegan-pokemon/Weights/MichaelFriese10_pokemon.pkl'
 ```
+
+Bilderna vi får ut måste vi ändra till 100x106 och sedan köra in den i img2midi sciptet
+Och sedan midi till mp3:
+
+```sh
+!sudo apt-get install timidity
+!timidity test.mid -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k test.mp3
+```
+
