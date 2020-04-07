@@ -113,7 +113,7 @@ for songs in test:
     midi2image(midi_path+"/"+song_path) 
     os.remove(midi_path+'\\'+song_path) #Tar bort sången 
     
-    dst = destination #Vart filerna sparas
+    dst = destination #Vart filerna sparas s
     parse = 0
     arr = os.listdir() #Tar alla filer
     ending = ".png" 
