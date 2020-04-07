@@ -76,7 +76,7 @@ def midi2image(midi_path):
         index = 0
         prev_index = 0
         repetitions = 0
-        while repetitions < 100:  #Hur många bilder den sparar utav sången. Om den överskrider sången blir bilden helt svart. Om för liten tar den inte hela sången
+        while repetitions < 70:  #Hur många bilder den sparar utav sången. Om den överskrider sången blir bilden helt svart. Om för liten tar den inte hela sången
             if prev_index >= len(values["pitch"]):
                 break
 
@@ -104,15 +104,16 @@ def midi2image(midi_path):
             index += 1
             repetitions+=1
 
-
-test = os.listdir('Music') #Tar fram alla sånger i filen mid och lägger ihop allt i listan test
+midi_path = sys.argv[1]
+destination = sys.argv[2]
+test = os.listdir(midi_path) #Tar fram alla sånger i filen mid och lägger ihop allt i listan test
 
 for songs in test:
-    midi_path = songs
-    midi2image("Music/"+midi_path) 
-    os.remove('Music\\'+midi_path) #Tar bort sången 
+    song_path = songs
+    midi2image(midi_path+"/"+song_path) 
+    os.remove(midi_path+'\\'+song_path) #Tar bort sången 
     
-    dst = "Images" #Vart filerna sparas
+    dst = destination #Vart filerna sparas
     parse = 0
     arr = os.listdir() #Tar alla filer
     ending = ".png" 
