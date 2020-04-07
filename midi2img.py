@@ -104,16 +104,16 @@ def midi2image(midi_path):
             index += 1
             repetitions+=1
 
-midi_path = sys.argv[1]
-destination = sys.argv[2]
+midi_path = "midi"
+destination = "Images"
 test = os.listdir(midi_path) #Tar fram alla sånger i filen mid och lägger ihop allt i listan test
 
 for songs in test:
     song_path = songs
-    midi2image(midi_path+song_path) 
-    os.remove(midi_path+song_path) #Tar bort sången 
+    midi2image(midi_path+"/"+song_path) 
+    os.remove(midi_path+'\\'+song_path) #Tar bort sången 
     
-    dst = destination #Vart filerna sparas s
+    dst = destination #Vart filerna sparas
     parse = 0
     arr = os.listdir() #Tar alla filer
     ending = ".png" 
