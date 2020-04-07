@@ -109,7 +109,7 @@ För att göra vårt eget dataset måste vi först ha bilder. Gör en mapp i STY
 
 När vi har bilderna använder vi:
 ```sh
-%cd /content/stylegan-pokemon/stylegan
+%cd /content/Project_Edward/Stlye-Gan
 !python dataset_tool.py create_from_images (Path till vart datan ska sparas) (/content/Images/)
 ```
 Eftersom stylegan använder sig utav tfrecord måste vi konvertera bilderna. (Startkt rekomenerat att bilderna sparas i driven i en mapp som heter data)
@@ -150,6 +150,20 @@ Och sedan måste du även ändra hur långt den kom (I det här fallet 3765):
 <!-- USAGE EXAMPLES -->
 ## Användning
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+För att använda ai och för att producera en genererad bild använder vi invoke scriptet från stylegan. Det som behövs är pathen till apk filen.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+
+```sh
+%cd /content/Project_Edward/Stlye-Gan
+!python invoke.py \
+    --model_file '/content/stylegan-pokemon/Weights/MichaelFriese10_pokemon.pkl'
+```
+
+Bilderna vi får ut måste vi ändra till 100x106 och sedan köra in den i img2midi sciptet
+Och sedan midi till mp3:
+
+```sh
+!sudo apt-get install timidity
+!timidity test.mid -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k test.mp3
+```
+
