@@ -110,8 +110,8 @@ test = os.listdir(midi_path) #Tar fram alla sånger i filen mid och lägger ihop
 
 for songs in test:
     song_path = songs
-    midi2image(midi_path+"/"+song_path) 
-    os.remove(midi_path+'\\'+song_path) #Tar bort sången 
+    midi2image(midi_path+song_path) 
+    os.remove(midi_path+song_path) #Tar bort sången 
     
     dst = destination #Vart filerna sparas s
     parse = 0
