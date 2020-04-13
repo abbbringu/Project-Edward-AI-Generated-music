@@ -34,6 +34,8 @@
   * [Träning från början](#träning-från-början)
   * [Träning från påbörjad träning](#träning-från-påbörjad-träning)
 * [Användning](#användning)
+* [Problem](#problem)
+
 
 
 
@@ -159,11 +161,17 @@ För att använda ai och för att producera en genererad bild använder vi invok
     --model_file '/content/stylegan-pokemon/Weights/MichaelFriese10_pokemon.pkl'
 ```
 
-Bilderna vi får ut måste vi ändra till 100x106 och sedan köra in den i img2midi sciptet
-Och sedan midi till mp3:
+Bilderna vi får ut måste vi ändra till 100x106 och sedan köra in den i img2midi sciptet. Vi måste även justrera  bilderna så vi får svarta och via pixlar. Vi måste sätta en treshold för att sätta pixlarna till antingen vit eller svart. (Koden finns inte)
+Sists ändrar vi midi till mp3:
 
 ```sh
 !sudo apt-get install timidity
 !timidity test.mid -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k test.mp3
 ```
+
+
+## Problem
+Scripten img2midi, midi2img och resize_img fungerar inte i google colab. 
+För tillfället fungerar det inte att generera bilder från vikterna.
+
 
